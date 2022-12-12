@@ -7,12 +7,13 @@ import {
 } from "react-router-dom";
 
 import Menu from "./components/Menu"
+import Home from "./components/Home"
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: null,
+      element: <Home />,
     },
     {
       path: "/menu",
