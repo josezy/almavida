@@ -1,7 +1,8 @@
 
 const Menu = () => {
-    window.location.replace('https://drive.google.com/file/d/1ghoNz3USqlxjTtJr2R3OIpPKrJgJEUMx/view');
-    return null
-}
-
-export default Menu
+    const pdfURL = '/almavida-menu-v2.pdf';
+    return (
+        <iframe src={pdfURL} style={{width: '100vw', height: '100vh'}} />
+    );
+};
+export default Menu;
