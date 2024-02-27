@@ -17,7 +17,7 @@ function App() {
     },
     {
       path: "/menu",
-      element: <Home />
+      element: <Menu />,
     }
   ]);
   return (

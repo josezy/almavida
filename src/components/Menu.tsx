@@ -1,6 +1,6 @@
 
 const Menu = () => {
-    window.location.replace('https://drive.google.com/file/d/1fqRq6m1q0zF0fcsg37NZb6zxZ3wfD8nm/view?usp=sharing');
+    window.location.replace('https://drive.google.com/file/d/1ghoNz3USqlxjTtJr2R3OIpPKrJgJEUMx/view');
     return null
 }
 
