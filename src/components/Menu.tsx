@@ -1,8 +1,12 @@
+import PDFObject from 'pdfobject'
 
 const Menu = () => {
     const pdfURL = '/almavida-menu-v2.pdf'
-    const iframeStyle = { width: '100svw', height: '100svh' }
-    return <iframe src={pdfURL} style={iframeStyle} />
+    if(!PDFObject.supportsPDFs){
+        window.location.href = pdfURL
+    }
+    PDFObject.embed(pdfURL)
+    return null;
 }
 
 export default Menu
