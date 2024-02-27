@@ -1,11 +1,12 @@
 body {
-  background-color: #9ea544ff;
+  background-color: #9E6549;
 }
 
 .splash-container {
   height: 100vh;
   width: 100vw;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -44,4 +45,17 @@ body {
 .logo {
   width: 80%;
   max-width: 800px;
+}
+
+.menu {
+  font-family: 'Merienda';
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 0.1;
+  color: #002D43;
+  cursor: pointer;
+}
+.menu:hover {
+  text-decoration: underline;
+  opacity: 0.7;
 }

@@ -5,6 +5,9 @@ import bottomLeft from '../assets/bottom-left.png'
 import logo from '../assets/logo.png'
 
 const Home = () => {
+    const onClickMenu = () => {
+        window.location.href = '/menu'
+    }
     return (
         <div className='splash-container'>
             <img src={bottomRight} alt='bottom right' className='bottom-right' />
@@ -12,6 +15,7 @@ const Home = () => {
             <img src={topRight} alt='top right' className='top-right' />
             <img src={bottomLeft} alt='bottom left' className='bottom-left' />
             <img src={logo} alt='logo almavida' className='logo' />
+            <div className='menu' onClick={onClickMenu}>Menú</div>
         </div>
     )
 }
