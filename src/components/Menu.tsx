@@ -5,7 +5,10 @@ const Menu = () => {
     if(!PDFObject.supportsPDFs){
         window.location.href = pdfURL
     }
-    PDFObject.embed(pdfURL)
+    const options = {
+        fallbackLink: "<p>Tu navegador no soporta PDFs. Por favor descarga el archivo: <a href='[url]'>Descargar menú</a></p>",
+    }
+    PDFObject.embed(pdfURL, document.body, options)
     return null;
 }
 
