@@ -17,6 +17,10 @@ function App() {
     {
       path: "/menu",
       element: <Menu />,
+    },
+    {
+      path: "*",
+      element: <Home />,
     }
   ]);
   return (
