@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Merienda } from "next/font/google";
+import { Analytics } from '@vercel/analytics/react'
 import "./globals.css";
 
 const merienda = Merienda({ subsets: ["latin"] })
@@ -46,7 +47,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={merienda.className}>{children}</body>
+      <body className={merienda.className}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
