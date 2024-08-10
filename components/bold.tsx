@@ -28,7 +28,7 @@ const initBoldCheckout = () => {
   document.head.appendChild(js)
 }
 
-const BoldButton = () => {
+const BoldButton = (props: { children?: React.ReactNode }) => {
   const [boldCheckoutProps, setBoldCheckoutProps] = React.useState<BoldCheckoutProps | null>(null)
   React.useEffect(() => {
     window.addEventListener('boldCheckoutLoaded', async () => {
@@ -48,7 +48,7 @@ const BoldButton = () => {
 
   return (
     <button onClick={pay} className="rounded-xl bg-orange-300 px-4 py-1 border border-orange-500">
-      Pagar
+      {props.children}
     </button>
   )
 }
