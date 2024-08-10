@@ -59,6 +59,11 @@ const FileUploadLLM = () => {
 
   return (
     <div className="p-4 max-w-md mx-auto">
+      <h2 className="text-xl font-semibold mb-4">Extraer información del RUT en formato PDF</h2>
+      <p className="text-sm text-gray-100">
+        Esta herramienta permite extraer campos del RUT en formato PDF. Principalmente nombre, NIT, dirección, correo y teléfono.
+      </p>
+      <br/>
       <div
         {...getRootProps()}
         className="border-2 border-dashed border-gray-300 rounded-lg p-4 text-center cursor-pointer"
