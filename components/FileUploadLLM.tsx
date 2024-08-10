@@ -66,23 +66,23 @@ const FileUploadLLM = () => {
       >
         <input {...getInputProps()} />
         {isDragActive ? (
-          <p>Drop the file here ...</p>
+          <p>Suelta el archivo aquí...</p>
         ) : (
-          <p>Drag and drop a file here, or click to select a file</p>
+          <p>Arrastra y suelta el archivo aquí, o haz click para seleccionar</p>
         )}
-        <p className="text-sm text-gray-100">You can also paste an image from clipboard</p>
+        {/* <p className="text-sm text-gray-100">You can also paste an image from clipboard</p> */}
       </div>
 
       {file && (
         <div className="mt-4">
-          <p>Selected file: {file.name}</p>
+          <p>Archivo seleccionado: {file.name}</p>
           <div className="flex flex-col items-center">
             <button
               onClick={processFile}
               className="mt-2 px-4 py-2 bg-blue-500 text-white rounded-xl hover:bg-blue-600"
               disabled={loading}
             >
-              {loading ? 'Processing...' : 'Process File'}
+              {loading ? 'Procesando...' : 'Extraer campos'}
             </button>
           </div>
         </div>
@@ -94,7 +94,7 @@ const FileUploadLLM = () => {
 
       {extractedData && (
         <div className="mt-4">
-          <h3 className="text-lg font-semibold">Extracted Data:</h3>
+          <h3 className="text-lg font-semibold">Información encontrada:</h3>
           <pre className="bg-gray-100 p-2 rounded mt-2 overflow-x-auto">
             {JSON.stringify(extractedData, null, 2)}
           </pre>
