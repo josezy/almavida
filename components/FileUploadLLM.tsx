@@ -68,7 +68,7 @@ const FileUploadLLM = () => {
         {isDragActive ? (
           <p>Drop the file here ...</p>
         ) : (
-          <p>Drag 'n' drop a file here, or click to select a file</p>
+          <p>Drag and drop a file here, or click to select a file</p>
         )}
         <p className="text-sm text-gray-100">You can also paste an image from clipboard</p>
       </div>
