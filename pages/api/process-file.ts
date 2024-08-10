@@ -17,14 +17,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   try {
-    const uploadDir = path.join(process.cwd(), 'tmp');
+    const uploadDir = path.join(process.cwd(), 'public/assets/');
     if (!fs.existsSync(uploadDir)) {
       fs.mkdirSync(uploadDir, { recursive: true });
     }
 
     // Parse the multipart form data
     const form = formidable({
-      uploadDir: path.join(process.cwd(), 'tmp'),
+      uploadDir,
       keepExtensions: true,
       maxFileSize: 10 * 1024 * 1024, // 10MB limit
     });
