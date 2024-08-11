@@ -1,8 +1,8 @@
 import { sendToLLM } from '@/utils/llm';
+import { PDFLoader } from '@langchain/community/document_loaders/fs/pdf';
 import formidable from 'formidable';
 import fs from 'fs';
 import { NextApiRequest, NextApiResponse } from 'next';
-import path from 'path';
 
 // Disable the default body parser
 export const config = {
@@ -17,15 +17,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   try {
-    const uploadDir = path.join(process.cwd(), 'public/assets/');
-    if (!fs.existsSync(uploadDir)) {
-      fs.mkdirSync(uploadDir, { recursive: true });
-    }
-
     // Parse the multipart form data
     const form = formidable({
-      uploadDir,
-      keepExtensions: true,
       maxFileSize: 10 * 1024 * 1024, // 10MB limit
     });
 
@@ -36,13 +29,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       });
     });
 
-    const file = files.file && Array.isArray(files.file) ? files.file[0] : undefined;
+    const file = files.file && Array.isArray(files.file) ? files.file[0] : files.file;
 
     if (!file) {
       return res.status(400).json({ error: 'No file uploaded' });
     }
 
-    const llmResponse = await sendToLLM(file.filepath, file.mimetype!);
+    const fileBuffer = fs.readFileSync(file.filepath);
+    const blob = new Blob([fileBuffer], { type: 'application/pdf' });
+    const loader = new PDFLoader(blob);
+    const docs = await loader.load();
+    const fileContents = docs[0].pageContent;
+    const llmResponse = await sendToLLM(fileContents);
 
     // Clean up: delete the temporary file
     fs.unlinkSync(file.filepath);
