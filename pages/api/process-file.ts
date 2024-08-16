@@ -6,6 +6,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 // Disable the default body parser
 export const config = {
+  maxDuration: 60,
   api: {
     bodyParser: false,
   },
